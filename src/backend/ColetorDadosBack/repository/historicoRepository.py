@@ -16,6 +16,3 @@ class FavoriteRepository:
 
     def remove(self, id):
         self.db.query(historico).filter_by(id=id).delete();
-
-    def update(self, historico):
-        self.db.query(historico).filter_by(id = historico.id).update(historico);
