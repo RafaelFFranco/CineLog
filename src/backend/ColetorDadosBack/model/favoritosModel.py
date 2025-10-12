@@ -1,11 +1,12 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Integer, String
+from sqlalchemy.orm import Mapped,mapped_column
 from ..config.database import Base
 
 class favoritos(Base):
-    __tablename__ = 'favoritos'
+    __tablename__ = 'tb_favoritos'
 
-    id = Column(Integer, primary_key=True)
-    imdbID : Column(String)
+    id : Mapped[int] = mapped_column(Integer, primary_key=True);
+    imdbID : Mapped[str] = mapped_column(String, nullable=False, unique=True);
 
 
 
