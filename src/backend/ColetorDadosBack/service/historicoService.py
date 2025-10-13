@@ -1,6 +1,7 @@
+from ..dto.historicoDTO import HistoricoRequest
 from ..repository.historicoRepository import *
 
-class HistoricoRepository:
+class HistoricoService:
     def __init__(self, dbSession):
         self.repository = HistoricoRepository(dbSession);
 
@@ -8,8 +9,11 @@ class HistoricoRepository:
     def get_all(self):
         return self.repository.get_all();
 
-    def add(self, historico):
-        self.repository.add(historico);
+    def add(self, historico : HistoricoRequest):
+       return self.repository.add(historico);
 
-    def remove(self, id):
-        self.repository.remove(id);
+    def delete_by_id(self, id):
+       return self.repository.delete_by_id(id);
+
+    def delete_all(self):
+       self.repository.delete_all();
