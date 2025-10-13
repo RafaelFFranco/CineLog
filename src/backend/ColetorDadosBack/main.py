@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from .controller import favoritoController, avaliacaoController
+from .controller import favoritoController, avaliacaoController, historicoController
 from .config.database import engine, Base
 
 Base.metadata.create_all(bind=engine)
@@ -14,7 +14,7 @@ app = FastAPI(
 print("Incluindo o router de favoritos...")
 app.include_router(favoritoController.router)
 app.include_router(avaliacaoController.router)
-# app.include_router(historicoController.router)
+app.include_router(historicoController.router)
 
 
 @app.get("/")
