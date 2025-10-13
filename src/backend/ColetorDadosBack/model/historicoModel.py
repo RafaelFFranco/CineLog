@@ -7,5 +7,6 @@ class historico(Base):
 
     id : Mapped[int] = mapped_column(Integer, primary_key=True);
     imdbID : Mapped[str] = mapped_column(String, nullable=False);
+    nome : Mapped[str] = mapped_column(String, nullable=False);
     genero : Mapped[str] = mapped_column(String);
     ano : Mapped[int] = mapped_column(Integer);
