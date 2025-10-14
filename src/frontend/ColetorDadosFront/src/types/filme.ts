@@ -1,18 +1,3 @@
-export interface FilmeBuscaResultado {
-  Title: string;
-  Year: string;
-  imdbID: string;
-  Type: 'movie' | 'series' | 'episode';
-  Poster: string;
-}
-
-export interface BuscaResponse {
-  Search: FilmeBuscaResultado[];
-  totalResults: string;
-  Response: 'True' | 'False';
-  Error?: string; 
-}
-
 export interface FilmeDetalhes {
   Title: string;
   Year: string;
@@ -28,10 +13,6 @@ export interface FilmeDetalhes {
   Country: string;
   Awards: string;
   Poster: string;
-  Ratings: {
-    Source: string;
-    Value: string;
-  }[];
   Metascore: string;
   imdbRating: string;
   imdbVotes: string;
@@ -42,4 +23,13 @@ export interface FilmeDetalhes {
   Production: string;
   Website: string;
   Response: 'True' | 'False';
+}
+
+
+export interface FilmeResumo {
+  original_title: string;
+  overview : string;
+  poster_path: string;
+  release_date: string;
+  vote_average: number;
 }
