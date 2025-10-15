@@ -1,39 +1,67 @@
-import type { FilmeDetalhes } from "../types/filme";
-import axios from "axios";
+import type { Filme as Movie, FilmeDetalhes as MovieDetails} from "../types/filme";
 
-const API_KEY=import.meta.env.OMDB_API_KEY;
-const API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}`;
+const OMDB_API_KEY = "f9531782"; // API key pública da OMDb
+const OMDB_BASE_URL = "https://www.omdbapi.com/";
 
-const apiClient = axios.create({
-    baseURL: API_URL,
-    headers: {
-        'Content-Type': 'application/json',
-    },
-});
-
-export const buscarImdbIdPorNome = async (titulo: string) => {
-    try {
-        const response = await apiClient.get<FilmeDetalhes>('',{
-            params: {
-                s: titulo,
-            },
-        });
-        return response.data;
-    } catch (e) {
-        console.error("Erro ao buscar filmes:", e);
-    }
+interface OMDbSearchResponse {
+  Search?: Movie[];
+  totalResults?: string;
+  Response: string;
+  Error?: string;
 }
 
-export const buscarDetalhesFilmePorId = async (imdbID: string) => {
-    try {
-        const response = await apiClient.get<FilmeDetalhes>('', {
-            params: {
-                i: imdbID,
-                plot: 'full',
-            },
-        });
-        return response.data;
-    } catch (e) {
-        console.error("Erro ao buscar detalhes do filme:", e);
-    }
+interface OMDbDetailResponse extends Partial<MovieDetails> {
+  Response: string;
+  Error?: string;
 }
+
+export const omdbService = {
+  searchMovies: async (query: string): Promise<Movie[]> => {
+    try {
+      const response = await fetch(
+        `${OMDB_BASE_URL}?apikey=${OMDB_API_KEY}&s=${encodeURIComponent(query)}&type=movie`
+      );
+      
+      if (!response.ok) {
+        throw new Error("Falha ao buscar filmes");
+      }
+
+      const data: OMDbSearchResponse = await response.json();
+      
+      if (data.Response === "False") {
+        if (data.Error === "Movie not found!") {
+          return [];
+        }
+        throw new Error(data.Error || "Erro ao buscar filmes");
+      }
+
+      return data.Search || [];
+    } catch (error) {
+      console.error("Erro ao buscar filmes:", error);
+      throw error;
+    }
+  },
+
+  getMovieDetails: async (imdbId: string): Promise<MovieDetails> => {
+    try {
+      const response = await fetch(
+        `${OMDB_BASE_URL}?apikey=${OMDB_API_KEY}&i=${imdbId}&plot=full`
+      );
+      
+      if (!response.ok) {
+        throw new Error("Falha ao buscar detalhes do filme");
+      }
+
+      const data: OMDbDetailResponse = await response.json();
+      
+      if (data.Response === "False") {
+        throw new Error(data.Error || "Erro ao buscar detalhes do filme");
+      }
+
+      return data as MovieDetails;
+    } catch (error) {
+      console.error("Erro ao buscar detalhes do filme:", error);
+      throw error;
+    }
+  },
+};
