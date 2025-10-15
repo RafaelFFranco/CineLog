@@ -1,6 +1,13 @@
-export interface FilmeDetalhes {
+// Types para dados de filmes da OMDb API
+export interface Filme {
+  imdbID: string;
   Title: string;
   Year: string;
+  Poster: string;
+  Type: string;
+}
+
+export interface FilmeDetalhes extends Filme {
   Rated: string;
   Released: string;
   Runtime: string;
@@ -12,24 +19,54 @@ export interface FilmeDetalhes {
   Language: string;
   Country: string;
   Awards: string;
-  Poster: string;
+  Ratings: Array<{
+    Source: string;
+    Value: string;
+  }>;
   Metascore: string;
   imdbRating: string;
   imdbVotes: string;
-  imdbID: string;
-  Type: 'movie' | 'series' | 'episode';
   DVD: string;
   BoxOffice: string;
   Production: string;
   Website: string;
-  Response: 'True' | 'False';
 }
 
+// Types para dados do backend
+export interface Avaliacao {
+  id: string;
+  imdbID: string;
+  rating: number;
+  comment: string;
+}
 
-export interface FilmeResumo {
-  original_title: string;
-  overview : string;
-  poster_path: string;
-  release_date: string;
-  vote_average: number;
+export interface Favorito {
+  id: string;
+  imdbID: string;
+  titulo: string;
+  poster: string;
+  ano: string;
+}
+
+export interface Historico {
+  id: string;
+  query: string;
+}
+
+export interface Estatisticas {
+  totalSearches: number;
+  mostSearchedGenre: {
+    genre: string;
+    count: number;
+  };
+  genreDistribution: Array<{
+    genre: string;
+    count: number;
+  }>;
+  preferredDecade: string;
+  averageRating: number;
+  yearDistribution: Array<{
+    year: string;
+    count: number;
+  }>;
 }
