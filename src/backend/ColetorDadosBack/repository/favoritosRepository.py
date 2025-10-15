@@ -11,7 +11,10 @@ class FavoriteRepository:
 
     def add(self, favorito_request: FavoritosRequest):
         db_favorito = favoritos(
-            imdbID=favorito_request.imdbID
+            imdbID=favorito_request.imdbID,
+            titulo=favorito_request.titulo,
+            poster=favorito_request.poster,
+            ano=favorito_request.ano,
         )
         self.db.add(db_favorito);
         self.db.commit();
