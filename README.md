@@ -9,7 +9,9 @@ organização e análise de dados, funcionando como uma ferramenta pessoal que
 coleta insights sobre seus hábitos de busca.
 
 
-## Tecnologias Utilizadas
+🎯 Funcionalidades
+Coleta de Dados (OMDb API): Um script robusto que extrai informações detalhadas de filmes diretamente de fontes da web.
 
-### Backend
--Python, FastAPI
+Armazenamento Persistente: Os dados coletados são salvos em um banco de dados relacional (SQLite para desenvolvimento) e também exportados para formatos como CSV e Parquet para análise de dados.
+
+API RESTful: Uma API de alta performance desenvolvida com FastAPI para consultar os dados dos filmes de forma simples e rápida.
