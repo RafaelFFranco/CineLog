@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
-from ..dto import avaliacaoDTO;
-from ..service.avaliacaoService import AvaliacaoService;
+from dto import avaliacaoDTO;
+from service.avaliacaoService import AvaliacaoService;
 from fastapi import APIRouter, Depends, status, HTTPException;
-from ..config.database import get_db;
+from config.database import get_db;
 
 router = APIRouter(
     prefix="/api/avaliacoes",

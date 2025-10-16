@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
-from .controller import favoritoController, avaliacaoController, historicoController
-from .config.database import engine, Base
+from controller import favoritoController, avaliacaoController, historicoController
+from config.database import engine, Base
 
 Base.metadata.create_all(bind=engine)
 

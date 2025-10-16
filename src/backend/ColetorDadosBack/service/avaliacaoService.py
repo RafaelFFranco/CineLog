@@ -1,5 +1,5 @@
-from ..dto.avaliacaoDTO import AvaliacaoRequest
-from ..repository.avalicaoRepository import AvaliacaoRepository;
+from dto.avaliacaoDTO import AvaliacaoRequest
+from repository.avalicaoRepository import AvaliacaoRepository;
 from sqlalchemy.orm import Session;
 
 class AvaliacaoService:

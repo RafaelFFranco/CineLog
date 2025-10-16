@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from ..dto.historicoDTO import HistoricoRequest
-from ..model.historicoModel import historico
+from dto.historicoDTO import HistoricoRequest
+from model.historicoModel import historico
 
 class HistoricoRepository:
     def __init__(self, db: Session):

@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
-from ..dto import favoritoDTO;
-from ..service.favoritosService import FavoritosService;
+from dto import favoritoDTO;
+from service.favoritosService import FavoritosService;
 from fastapi import APIRouter, Depends, status, HTTPException;
-from ..config.database import get_db;
+from config.database import get_db;
 
 router = APIRouter(
     prefix="/api/favoritos",

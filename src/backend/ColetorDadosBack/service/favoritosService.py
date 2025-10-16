@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from ..dto.favoritoDTO import FavoritosRequest
-from ..repository.favoritosRepository import FavoriteRepository
+from dto.favoritoDTO import FavoritosRequest
+from repository.favoritosRepository import FavoriteRepository
 
 class FavoritosService:
 

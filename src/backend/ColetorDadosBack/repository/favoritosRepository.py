@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from ..dto.favoritoDTO import FavoritosRequest
-from ..model.favoritosModel import favoritos
+from dto.favoritoDTO import FavoritosRequest
+from model.favoritosModel import favoritos
 
 class FavoriteRepository:
     def __init__(self, db: Session):

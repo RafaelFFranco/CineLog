@@ -1,6 +1,6 @@
 from sqlalchemy import Integer, String, Text
 from sqlalchemy.orm import Mapped,mapped_column
-from ..config.database import Base
+from config.database import Base
 
 class avaliacao(Base):
     __tablename__ = 'tb_avaliacao'

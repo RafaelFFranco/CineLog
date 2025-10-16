@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from ..dto.avaliacaoDTO import AvaliacaoRequest
-from ..model.avaliacaoModel import avaliacao
+from dto.avaliacaoDTO import AvaliacaoRequest
+from model.avaliacaoModel import avaliacao
 
 class AvaliacaoRepository:
     def __init__(self, db: Session):

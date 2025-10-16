@@ -1,5 +1,4 @@
-from ..dto.historicoDTO import HistoricoRequest
-from ..repository.historicoRepository import *
+from repository.historicoRepository import *
 
 class HistoricoService:
     def __init__(self, dbSession):
