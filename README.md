@@ -30,3 +30,29 @@ separando as responsabilidades da aplicação em camadas específicas (model,rep
   - dto -> Data Transfer Objects, têm como objetivo encapsular o estado das entidade para facilitar a comunicação com interfaces externas e as diversas camadas do software.
 
 ### O frontend foi estruturado em com pastas api,componentes,hooks,pages e util
+
+
+
+# 🏛️ Decisões de Projeto
+A arquitetura do projeto foi guiada pelos princípios de Separação de Concerns e Injeção de Dependência para garantir um código limpo, testável e de fácil manutenção.
+
+## Backend
+Adotei uma arquitetura em camadas com responsabilidades bem definidas:
+
+- Controller: Gerencia as requisições HTTP e serve como ponto de entrada da API.
+- Service: Executa a lógica e as regras de negócio da aplicação.
+- Repository: Abstrai o acesso aos dados, isolando as consultas SQL do resto do sistema.
+- Model: Define as entidades e a estrutura de dados do domínio.
+- DTO: Modela os dados para transferência entre camadas e para o cliente, garantindo uma interface de comunicação clara e segura.
+- Config: Centraliza as configurações e variáveis de ambiente.
+
+A Injeção de Dependência é utilizada para desacoplar as camadas, o que simplifica a substituição de componentes e a escrita de testes unitários.
+
+## Frontend
+A estrutura de pastas foi organizada para maximizar o reuso de código:
+
+- pages: Telas principais da aplicação.
+- componentes: Componentes de UI reutilizáveis (botões, cards, etc.).
+- api: Centraliza as chamadas para o backend.
+- hooks: Lógica de estado reutilizável.
+- util: Funções auxiliares.
