@@ -8,8 +8,8 @@ class HistoricoService:
     def get_all(self):
         return self.repository.get_all();
 
-    def add(self, historico : HistoricoRequest):
-       return self.repository.add(historico);
+    def add(self, historico_request : HistoricoRequest):
+       return self.repository.add(historico_request);
 
     def delete_by_id(self, id):
        return self.repository.delete_by_id(id);
