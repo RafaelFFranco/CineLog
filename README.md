@@ -9,17 +9,17 @@ organização e análise de dados, funcionando como uma ferramenta pessoal que
 coleta insights sobre seus hábitos de busca.
 
 
-## 🎯 Funcionalidades
+##  Funcionalidades
 
 - Coleta de Dados (OMDb API): API pública que retorna dados sobre filmes.
 - Armazenamento Persistente: Os dados coletados são salvos em um banco de dados SQLite.
 - API RESTful:  API desenvolvida com FastAPI para armazenar informações do usuário como filmes favoritos, avaliações e histórico
 
 
-## 🏛️ Decisões de Projeto
+## Decisões de Projeto
 O projeto utiliza da Arquitetura de Camadas e Injeção de Dependência para garantir um código limpo, testável e de fácil manutenção.
 
-### 🧠 Backend
+###  Backend
 Camadas com responsabilidades bem definidas:
 
 - Controller: Gerencia as requisições HTTP e serve como ponto de entrada da API.
@@ -29,7 +29,7 @@ Camadas com responsabilidades bem definidas:
 - DTO: Modela os dados para transferência entre camadas e para o cliente, garantindo uma interface de comunicação clara e segura.
 - Config: Centraliza as configurações e variáveis de ambiente.
 
-### 🎨 Frontend
+###  Frontend
 A estrutura de pastas foi organizada para priorizar o reuso de código:
 
 - pages: Telas principais da aplicação.
@@ -39,7 +39,7 @@ A estrutura de pastas foi organizada para priorizar o reuso de código:
 - util: Funções auxiliares.
 
 
-### 💾 Banco de Dados
+###  Banco de Dados
 O projeto utiliza um banco de dados relacional para persistir as informações. A modelagem foi centrada em três tabelas principais:
 
 -   **`Avaliacoes`**: Armazena as notas e os comentários que o usuário atribui a um determinado filme.
@@ -47,7 +47,7 @@ O projeto utiliza um banco de dados relacional para persistir as informações. 
 -   **`Historico`**: Funciona como um catálogo local, guardando informações dos filmes consultados (título, ano, gênero, nota do IMDb).
 
 
-## ❓ Perguntas do Desafio
+##  Perguntas do Desafio
 
 ### Qual foi o maior desafio técnico? 
 - Durante o desenvolvimento da solução acredito que o meu maior desafio técnico foi lidar com a criação da interface web por ser um campo que possuo menos domínio
@@ -91,7 +91,7 @@ Os dados coletados foram estruturados em três tabelas principais:
 
 
 
-## 🚀 Rodando o Projeto Localmente
+##  Rodando o Projeto Localmente
 
 ### Pré-requisitos
 
