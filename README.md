@@ -17,7 +17,7 @@ coleta insights sobre seus hábitos de busca.
 
 
 ## 🏛️ Decisões de Projeto
-A arquitetura do projeto foi guiada pelos princípios de Separação de Concerns e Injeção de Dependência para garantir um código limpo, testável e de fácil manutenção.
+O projeto utiliza da Arquitetura de Camadas e Injeção de Dependência para garantir um código limpo, testável e de fácil manutenção.
 
 ### Backend
 Adotei uma arquitetura em camadas com responsabilidades bem definidas:
