@@ -80,10 +80,13 @@ Os dados coletados foram estruturados em três tabelas principais:
 
 
 ## Diagrama de Casos de Uso
-
+<img src="Artefatos/Diagrama_Casos_Uso.png"><img/>
 
 ## Diagrama de Classes (Backend)
+<img src="Artefatos/Diagrama_Classes.jpg"><img/>
 
+## Funcionamento do Sistema
+<img src="Artefatos/Funcionamento_Do_Sitema_GIF.gif"><img/>
 
 
 
