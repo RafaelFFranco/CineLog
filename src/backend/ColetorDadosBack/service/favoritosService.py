@@ -14,5 +14,8 @@ class FavoritosService:
     def get_all(self):
         return self.repository.get_all();
 
-    def remove_favorito(self,imdbID: str):
-        return self.repository.remove(imdbID);
+    def remove_favorito_by_imdbID(self,imdbID: str):
+        return self.repository.remove_by_imdbID(imdbID);
+
+    def get_by_imdbID(self, imdbID: str):
+        return self.repository.get_by_imdbID(imdbID);
