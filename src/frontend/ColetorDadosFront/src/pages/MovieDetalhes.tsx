@@ -161,7 +161,6 @@ const MovieDetails = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section with Backdrop */}
       <div className="relative">
         <div className="absolute inset-0 gradient-hero opacity-90" />
         {hasPoster && (
@@ -237,7 +236,7 @@ const MovieDetails = () => {
                     "transition-smooth",
                     isFavorite
                       ? "bg-secondary text-secondary-foreground hover:bg-secondary/90"
-                      : "bg-card hover:bg-muted border border-border"
+                      : "bg-slate-700 text-slate-200 hover:bg-slate-600 border border-slate-600"
                   )}
                 >
                   <Heart className={cn("w-4 h-4 mr-2", isFavorite && "fill-current")} />
