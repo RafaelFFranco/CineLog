@@ -48,3 +48,14 @@ O projeto utiliza um banco de dados relacional para persistir as informações. 
 
 
 ## ❓ Perguntas do Desafio
+Qual foi o maior desafio técnico? 
+
+
+
+
+
+
+
+
+# Rodar o servidor de desenvolvimento
+npm run dev
