@@ -1,4 +1,19 @@
 # Desafio-Tecnico-Coletor-de-Dados-de-Filmes
+Com certeza\! Aqui está um sumário gerado a partir do seu arquivo `README.md`. Você pode utilizá-lo para navegar rapidamente pelas seções principais do documento.
+
+## Sumário
+
+  - [Contextualização](https://www.google.com/search?q=%23contextualiza%C3%A7%C3%A3o)
+  - [Funcionalidades](https://www.google.com/search?q=%23funcionalidades)
+  - [Decisões de Projeto](https://www.google.com/search?q=%23decis%C3%B5es-de-projeto)
+  - [Perguntas do Desafio](https://www.google.com/search?q=%23perguntas-do-desafio)
+  - [Diagrama de Casos de Uso](https://www.google.com/search?q=%23diagrama-de-casos-de-uso)
+  - [Diagrama de Classes (Backend)](https://www.google.com/search?q=%23diagrama-de-classes-backend)
+  - [Funcionamento do Sistema](https://www.google.com/search?q=%23funcionamento-do-sistema)
+  - [Rodando o Projeto Localmente](https://www.google.com/search?q=%23rodando-o-projeto-localmente)
+  - [Estrutura do Projeto](https://www.google.com/search?q=%23estrutura-do-projeto)
+
+
 
 ## Contextualização
 O Coletor de Dados de Filmes é uma aplicação fullstack onde o usuário pode buscar filmes, 
