@@ -29,18 +29,22 @@ const MovieDetails = () => {
     }
   }, [id]);
 
-  const loadMovieData = async (movieId: string) => {
+  const loadMovieData = async (imdbID: string) => {
     setIsLoading(true);
     try {
       const [movieData, favoriteData, ratingData] = await Promise.all([
-        omdbService.getMovieDetails(movieId),
-        backendService.favoritos.getByMovieId(movieId),
-        backendService.ratings.getByMovieId(movieId),
+        omdbService.getMovieDetails(imdbID),
+        backendService.favoritos.getByMovieId(imdbID),
+        backendService.ratings.getByMovieId(imdbID),
       ]);
+
+      backendService.searchHistory.add(movieData.imdbID, movieData.Genre, movieData.Year, movieData.Title, movieData.imdbRating).catch((error) => {
+        console.error("Erro ao salvar histórico:", error);
+      });
 
       setMovie(movieData);
       setIsFavorite(!!favoriteData);
-      setFavoriteId(favoriteData?.id || null);
+      setFavoriteId(favoriteData?.imdbID || null);
       setRating(ratingData);
     } catch (error) {
       toast({
@@ -52,6 +56,7 @@ const MovieDetails = () => {
       setIsLoading(false);
     }
   };
+  console.log(rating);
 
   const handleToggleFavorite = async () => {
     if (!movie) return;
@@ -93,7 +98,7 @@ const MovieDetails = () => {
 
     try {
       if (rating) {
-        const updated = await backendService.ratings.update(rating.id, ratingValue, comment);
+        const updated = await backendService.ratings.update(rating.imdbID, ratingValue, comment);
         setRating(updated);
         toast({
           title: "Avaliação atualizada",
@@ -121,7 +126,7 @@ const MovieDetails = () => {
     if (!rating) return;
 
     try {
-      await backendService.ratings.delete(rating.id);
+      await backendService.ratings.delete(rating.imdbID);
       setRating(null);
       toast({
         title: "Avaliação excluída",
@@ -297,7 +302,7 @@ const MovieDetails = () => {
                     key={star}
                     className={cn(
                       "w-6 h-6",
-                      star <= rating.rating
+                      star <= rating.nota
                         ? "fill-primary text-primary"
                         : "text-muted-foreground"
                     )}
@@ -321,14 +326,14 @@ const MovieDetails = () => {
                 </Button>
               </div>
             </div>
-            {rating.comment && (
-              <p className="text-muted-foreground">{rating.comment}</p>
+            {rating.comentario && (
+              <p className="text-muted-foreground">{rating.comentario}</p>
             )}
           </Card>
         ) : (
           <RatingForm
-            initialRating={rating?.rating}
-            initialComment={rating?.comment}
+            initialRating={rating?.nota}
+            initialComment={rating?.comentario}
             onSubmit={handleSaveRating}
             onCancel={rating ? () => setIsEditing(false) : undefined}
             isEditing={!!rating}

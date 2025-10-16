@@ -22,13 +22,6 @@ const Search = () => {
       const results = await omdbService.searchMovies(query);
       setMovies(results);
 
-      // Registrar busca no backend
-      try {
-        await backendService.searchHistory.add(query);
-      } catch (error) {
-        console.error("Erro ao salvar histórico:", error);
-      }
-
       if (results.length === 0) {
         toast({
           title: "Nenhum resultado",

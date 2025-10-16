@@ -62,7 +62,7 @@ const Dashboard = () => {
     );
   }
 
-  const hasData = statistics.totalSearches > 0;
+  const hasData = statistics.buscasTotais > 0;
 
   return (
     <div className="min-h-screen">
@@ -106,7 +106,7 @@ const Dashboard = () => {
                     Total de Buscas
                   </h3>
                 </div>
-                <p className="text-3xl font-bold">{statistics.totalSearches}</p>
+                <p className="text-3xl font-bold">{statistics.buscasTotais}</p>
               </Card>
 
               <Card className="p-6 gradient-card border-border">
@@ -119,10 +119,10 @@ const Dashboard = () => {
                   </h3>
                 </div>
                 <p className="text-2xl font-bold">
-                  {statistics.mostSearchedGenre.genre || "N/A"}
+                  {statistics.generoMaisBuscado.genero || "N/A"}
                 </p>
                 <p className="text-sm text-muted-foreground">
-                  {statistics.mostSearchedGenre.count} buscas
+                  {statistics.generoMaisBuscado.contagem} buscas
                 </p>
               </Card>
 
@@ -136,7 +136,7 @@ const Dashboard = () => {
                   </h3>
                 </div>
                 <p className="text-3xl font-bold">
-                  {statistics.preferredDecade || "N/A"}
+                  {statistics.decadaFavorita || "N/A"}
                 </p>
               </Card>
 
@@ -150,7 +150,7 @@ const Dashboard = () => {
                   </h3>
                 </div>
                 <p className="text-3xl font-bold">
-                  {statistics.averageRating.toFixed(1)}
+                  {statistics.notaMedia.toFixed(1)}
                 </p>
                 <p className="text-sm text-muted-foreground">de 5.0</p>
               </Card>
@@ -158,26 +158,25 @@ const Dashboard = () => {
 
             {/* Charts */}
             <div className="grid lg:grid-cols-2 gap-8">
-              {/* Genre Distribution */}
-              {statistics.genreDistribution.length > 0 && (
+              {statistics.distribuicaoGenero.length > 0 && (
                 <Card className="p-6 gradient-card border-border">
                   <h2 className="text-xl font-bold mb-6">Distribuição por Gênero</h2>
                   <ResponsiveContainer width="100%" height={300}>
                     <PieChart>
                       <Pie
-                        data={statistics.genreDistribution}
+                        data={statistics.distribuicaoGenero}
                         cx="50%"
                         cy="50%"
                         labelLine={false}
-                        label={({ genre, percent }) =>
-                          `${genre}: ${(percent * 100).toFixed(0)}%`
+                        label={({ genero, percent }) =>
+                          `${genero}: ${(percent * 100).toFixed(0)}%`
                         }
                         outerRadius={100}
                         fill="#8884d8"
-                        dataKey="count"
-                        nameKey="genre"
+                        dataKey="contagem"
+                        nameKey="genero"
                       >
-                        {statistics.genreDistribution.map((entry, index) => (
+                        {statistics.distribuicaoGenero.map((entry, index) => (
                           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                         ))}
                       </Pie>
@@ -188,15 +187,14 @@ const Dashboard = () => {
                 </Card>
               )}
 
-              {/* Year Distribution */}
-              {statistics.yearDistribution.length > 0 && (
+              {statistics.distribuicaoAno.length > 0 && (
                 <Card className="p-6 gradient-card border-border">
                   <h2 className="text-xl font-bold mb-6">Filmes por Ano</h2>
                   <ResponsiveContainer width="100%" height={300}>
-                    <BarChart data={statistics.yearDistribution}>
+                    <BarChart data={statistics.distribuicaoAno}>
                       <CartesianGrid strokeDasharray="3 3" stroke="#333" />
                       <XAxis 
-                        dataKey="year" 
+                        dataKey="ano" 
                         stroke="#888"
                         tick={{ fill: '#888' }}
                       />
@@ -211,7 +209,7 @@ const Dashboard = () => {
                           borderRadius: '8px',
                         }}
                       />
-                      <Bar dataKey="count" fill="#eab308" radius={[8, 8, 0, 0]} />
+                      <Bar dataKey="contagem" fill="#eab308" radius={[8, 8, 0, 0]} />
                     </BarChart>
                   </ResponsiveContainer>
                 </Card>

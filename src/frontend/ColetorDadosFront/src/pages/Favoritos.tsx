@@ -51,8 +51,6 @@ const Favorites = () => {
     }
   };
 
-  console.log("Favoritos carregados:", favorites);
-  console.log("Avaliações carregadas:", ratings);
 
   if (isLoading) {
     return (
@@ -141,16 +139,16 @@ const Favorites = () => {
                                   key={star}
                                   className={cn(
                                     "w-4 h-4",
-                                    star <= rating.rating
+                                    star <= rating.nota
                                       ? "fill-primary text-primary"
                                       : "text-muted-foreground"
                                   )}
                                 />
                               ))}
                             </div>
-                            {rating.comment && (
+                            {rating.comentario && (
                               <p className="text-sm text-muted-foreground line-clamp-2">
-                                {rating.comment}
+                                {rating.comentario}
                               </p>
                             )}
                           </div>
