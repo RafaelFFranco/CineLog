@@ -20,14 +20,25 @@ def get_all(
     except Exception as e:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(e));
 
+@router.get('/get/{imdbID}', response_model=favoritoDTO.FavoritosResponse, status_code=status.HTTP_200_OK)
+def get_by_imdbID(
+        imdbID: str,
+        db: Session = Depends(get_db)
+):
+    try:
+        service = FavoritosService(db=db);
+        return service.get_by_imdbID(imdbID);
+    except Exception as e:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(e));
+
 @router.delete('/remove/{imdbID}', status_code=status.HTTP_200_OK)
-def remove_favorito(
+def remove_favorito_by_imdbID(
     imdbID: str,
     db: Session = Depends(get_db)
 ):
     try:
         service = FavoritosService(db=db);
-        deletado = service.remove_favorito(imdbID);
+        deletado = service.remove_favorito_by_imdbID(imdbID);
         if deletado == None:
             raise HTTPException(status_code=404, detail=f"Filme com id {imdbID} não encontrado");
 
