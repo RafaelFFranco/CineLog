@@ -20,7 +20,7 @@ coleta insights sobre seus hábitos de busca.
 
 ## 🏛️ Decisões de Projeto
 
-### O backend do projeto foi estruturado em um modelo MVC utilizando o padrão de projeto injeção de dependência,
+ O backend do projeto foi estruturado em um modelo MVC utilizando o padrão de projeto injeção de dependência,
 separando as responsabilidades da aplicação em camadas específicas (model,repository,service,controller,config,dto).
   - model -> Modelos (tabelas) da aplicação no seu estado sensível
   - repository -> Centraliza as consultas SQL do sistema.
