@@ -41,9 +41,9 @@ export const backendService = {
       });
     },
 
-    getByMovieId: async (movieId: string): Promise<Favorite | null> => {
+    getByMovieId: async (imdbID: string): Promise<Favorite | null> => {
       try {
-        return await fetchAPI(`/favoritos/${movieId}`);
+        return await fetchAPI(`/favoritos/get/${imdbID}`);
       } catch {
         return null;
       }
@@ -56,30 +56,30 @@ export const backendService = {
       return fetchAPI("/avaliacoes/get-all");
     },
 
-    getByMovieId: async (movieId: string): Promise<Rating | null> => {
+    getByMovieId: async (imdbID: string): Promise<Rating | null> => {
       try {
-        return await fetchAPI(`/avaliacoes/movie/${movieId}`);
+        return await fetchAPI(`/avaliacoes/get/${imdbID}`);
       } catch {
         return null;
       }
     },
 
-    create: async (movieId: string, rating: number, comment: string): Promise<Rating> => {
+    create: async (imdbID: string, nota: number, comentario: string): Promise<Rating> => {
       return fetchAPI("/avaliacoes/add", {
         method: "POST",
-        body: JSON.stringify({ movieId, rating, comment }),
+        body: JSON.stringify({ imdbID, nota, comentario }),
       });
     },
 
-    update: async (ratingId: string, rating: number, comment: string): Promise<Rating> => {
-      return fetchAPI(`/avaliacoes/${ratingId}`, {
+    update: async (imdbID: string, nota: number, comentario: string): Promise<Rating> => {
+      return fetchAPI(`/avaliacoes/update`, {
         method: "PUT",
-        body: JSON.stringify({ rating, comment }),
+        body: JSON.stringify({ imdbID, nota, comentario }),
       });
     },
 
-    delete: async (ratingId: string): Promise<void> => {
-      return fetchAPI(`/ratings/${ratingId}`, {
+    delete: async (imdbID: string): Promise<void> => {
+      return fetchAPI(`/avaliacoes/remove/${imdbID}`, {
         method: "DELETE",
       });
     },
@@ -87,10 +87,10 @@ export const backendService = {
 
   // Histórico de buscas
   searchHistory: {
-    add: async (query: string): Promise<void> => {
-      return fetchAPI("/search-history", {
+    add: async (imdbID: string, genero: string, ano: string, nome: string, imdbRating: string): Promise<void> => {
+      return fetchAPI("/historico/add", {
         method: "POST",
-        body: JSON.stringify({ query }),
+        body: JSON.stringify({ imdbID, genero, ano, nome, imdbRating }),
       });
     },
   },
@@ -98,7 +98,7 @@ export const backendService = {
   // Estatísticas
   statistics: {
     get: async (): Promise<Statistics> => {
-      return fetchAPI("/statistics");
+      return fetchAPI("/estatisticas/get");
     },
   },
 };
