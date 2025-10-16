@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
-from controller import favoritoController, avaliacaoController, historicoController
+from controller import favoritoController, avaliacaoController, historicoController, estatisticasController
 from config.database import engine, Base
 
 Base.metadata.create_all(bind=engine)
@@ -27,10 +27,11 @@ app.add_middleware(
 
 
 
-print("Incluindo o router de favoritos...")
+print("Incluindo routers")
 app.include_router(favoritoController.router)
 app.include_router(avaliacaoController.router)
 app.include_router(historicoController.router)
+app.include_router(estatisticasController.router)
 
 
 @app.get("/")
