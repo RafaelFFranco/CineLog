@@ -36,8 +36,8 @@ export interface FilmeDetalhes extends Filme {
 export interface Avaliacao {
   id: string;
   imdbID: string;
-  rating: number;
-  comment: string;
+  nota: number;
+  comentario: string;
 }
 
 export interface Favorito {
@@ -54,19 +54,19 @@ export interface Historico {
 }
 
 export interface Estatisticas {
-  totalSearches: number;
-  mostSearchedGenre: {
-    genre: string;
-    count: number;
+  buscasTotais: number;
+  generoMaisBuscado: {
+    genero: string;
+    contagem: number;
   };
-  genreDistribution: Array<{
-    genre: string;
-    count: number;
+  distribuicaoGenero: Array<{
+    genero: string;
+    contagem: number;
   }>;
-  preferredDecade: string;
-  averageRating: number;
-  yearDistribution: Array<{
-    year: string;
-    count: number;
+  decadaFavorita: string;
+  notaMedia: number;
+  distribuicaoAno: Array<{
+    ano: string;
+    contagem: number;
   }>;
 }
