@@ -22,7 +22,7 @@ def get_all(
 
 @router.get('/get/{imdbID}', response_model=avaliacaoDTO.AvaliacaoResponse, status_code=status.HTTP_200_OK)
 def get_by_imdbID(
-        imdbID: int,
+        imdbID: str,
         db: Session = Depends(get_db)
 ):
     try:
@@ -36,13 +36,13 @@ def get_by_imdbID(
         raise HTTPException(status_code=400, detail=str(e));
 
 @router.delete('/remove/{imdbID}', status_code=status.HTTP_200_OK)
-def remove_avaliacao(
+def remove_avaliacao_by_imdbID(
     imdbID: str,
     db: Session = Depends(get_db)
 ):
     try:
         service = AvaliacaoService(db=db);
-        deletado = service.remove(imdbID);
+        deletado = service.remove_by_imdbID(imdbID);
         if deletado == None:
             raise HTTPException(status_code=404, detail=f"Filme com id {imdbID} não encontrado");
 
