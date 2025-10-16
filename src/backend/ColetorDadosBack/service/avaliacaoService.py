@@ -16,8 +16,8 @@ class AvaliacaoService:
     def add(self, avaliacao_request : AvaliacaoRequest):
         return self.repository.add(avaliacao_request);
 
-    def remove(self, id):
-        return self.repository.remove(id);
+    def remove_by_imdbID(self, imdbID):
+        return self.repository.remove_by_imdbID(imdbID);
 
     def update(self, avaliacao):
         return self.repository.update(avaliacao);
