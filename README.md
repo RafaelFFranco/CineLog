@@ -45,3 +45,6 @@ O projeto utiliza um banco de dados relacional para persistir as informações. 
 -   **`Avaliacoes`**: Armazena as notas e os comentários que o usuário atribui a um determinado filme.
 -   **`Favoritos`**: Mantém os filmes preferidos de cada usuário, permitindo acesso rápido.
 -   **`Historico`**: Funciona como um catálogo local, guardando informações dos filmes consultados (título, ano, gênero, nota do IMDb).
+
+
+## ❓ Perguntas do Desafio
