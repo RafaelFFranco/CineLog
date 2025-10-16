@@ -15,4 +15,4 @@ coleta insights sobre seus hábitos de busca.
 
 - Armazenamento Persistente: Os dados coletados são salvos em um banco de dados SQLite.
 
-- API RESTful: Uma API de alta performance desenvolvida com FastAPI para consultar os dados dos filmes de forma simples e rápida.
+- API RESTful:  API desenvolvida com FastAPI para armazenar informações do usuário como filmes favoritos, avaliações e histórico
