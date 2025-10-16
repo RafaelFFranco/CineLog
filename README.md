@@ -7,3 +7,9 @@ coletar/analisar dados sobre suas buscas e preferências cinematográficas.
 O sistema tem como foco o controle pessoal de filmes assistidos com elementos de 
 organização e análise de dados, funcionando como uma ferramenta pessoal que 
 coleta insights sobre seus hábitos de busca.
+
+
+## Tecnologias Utilizadas
+
+### Backend
+-Python, FastAPI
