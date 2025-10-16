@@ -5,6 +5,7 @@ class HistoricoRequest(BaseModel):
     genero : str;
     ano : int;
     nome : str;
+    imdbRating : str;
 
 class HistoricoResponse(BaseModel):
     id : int;
@@ -12,3 +13,4 @@ class HistoricoResponse(BaseModel):
     nome: str;
     genero: str;
     ano: int;
+    imdbRating: str;
