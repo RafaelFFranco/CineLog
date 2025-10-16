@@ -1,6 +1,6 @@
 # Desafio-Tecnico-Coletor-de-Dados-de-Filmes
 
-##Contextualização
+## Contextualização
 O Coletor de Dados de Filmes é uma aplicação fullstack onde o usuário possa buscar filmes utilizando 
 uma API externa, favoritar seus filmes preferidos, registrar reviews pessoais e 
 coletar/analisar dados básicos sobre suas buscas e preferências cinematográficas. 
