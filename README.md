@@ -37,3 +37,11 @@ A estrutura de pastas foi organizada para priorizar o reuso de código:
 - api: Centraliza as chamadas para o backend.
 - hooks: Lógica de estado reutilizável.
 - util: Funções auxiliares.
+
+
+### 💾 Banco de Dados
+O projeto utiliza um banco de dados relacional para persistir as informações. A modelagem foi centrada em três tabelas principais:
+
+-   **`Avaliacoes`**: Armazena as notas e os comentários que os usuários atribuem a um determinado filme.
+-   **`Favoritos`**: Mantém uma lista dos filmes preferidos de cada usuário, permitindo acesso rápido.
+-   **`Historico`**: Funciona como um catálogo local, guardando informações dos filmes consultados (título, ano, gênero, nota do IMDb) para otimizar futuras buscas e reduzir a dependência de APIs externas.
