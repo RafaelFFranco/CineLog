@@ -16,10 +16,10 @@ coleta insights sobre seus hábitos de busca.
 - API RESTful:  API desenvolvida com FastAPI para armazenar informações do usuário como filmes favoritos, avaliações e histórico
 
 
-# 🏛️ Decisões de Projeto
+## 🏛️ Decisões de Projeto
 A arquitetura do projeto foi guiada pelos princípios de Separação de Concerns e Injeção de Dependência para garantir um código limpo, testável e de fácil manutenção.
 
-## Backend
+### Backend
 Adotei uma arquitetura em camadas com responsabilidades bem definidas:
 
 - Controller: Gerencia as requisições HTTP e serve como ponto de entrada da API.
@@ -31,7 +31,7 @@ Adotei uma arquitetura em camadas com responsabilidades bem definidas:
 
 A Injeção de Dependência é utilizada para desacoplar as camadas, o que simplifica a substituição de componentes e a escrita de testes unitários.
 
-## Frontend
+### Frontend
 A estrutura de pastas foi organizada para maximizar o reuso de código:
 
 - pages: Telas principais da aplicação.
