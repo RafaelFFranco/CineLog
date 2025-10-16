@@ -20,7 +20,7 @@ coleta insights sobre seus hábitos de busca.
 O projeto utiliza da Arquitetura de Camadas e Injeção de Dependência para garantir um código limpo, testável e de fácil manutenção.
 
 ### Backend
-Adotei uma arquitetura em camadas com responsabilidades bem definidas:
+Camadas com responsabilidades bem definidas:
 
 - Controller: Gerencia as requisições HTTP e serve como ponto de entrada da API.
 - Service: Executa a lógica e as regras de negócio da aplicação.
@@ -29,10 +29,8 @@ Adotei uma arquitetura em camadas com responsabilidades bem definidas:
 - DTO: Modela os dados para transferência entre camadas e para o cliente, garantindo uma interface de comunicação clara e segura.
 - Config: Centraliza as configurações e variáveis de ambiente.
 
-A Injeção de Dependência é utilizada para desacoplar as camadas, o que simplifica a substituição de componentes e a escrita de testes unitários.
-
 ### Frontend
-A estrutura de pastas foi organizada para maximizar o reuso de código:
+A estrutura de pastas foi organizada para priorizar o reuso de código:
 
 - pages: Telas principais da aplicação.
 - componentes: Componentes de UI reutilizáveis (botões, cards, etc.).
