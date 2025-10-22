@@ -1,6 +1,4 @@
-# Desafio-Tecnico-Coletor-de-Dados-de-Filmes
-Com certeza\! Aqui está um sumário gerado a partir do seu arquivo `README.md`. Você pode utilizá-lo para navegar rapidamente pelas seções principais do documento.
-
+# CineLog
 ## Sumário
 
   - [Contextualização](#contextualização)
