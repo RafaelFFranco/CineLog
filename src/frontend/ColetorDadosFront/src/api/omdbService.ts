@@ -1,7 +1,7 @@
 import type { Filme as Movie, FilmeDetalhes as MovieDetails} from "../types/filme";
 
 //Chave OMDB exposta para facilitar teste do software, em ambiente de prod seria adicionado em uma .env
-const OMDB_API_KEY = "f9531782"; 
+const OMDB_API_KEY = process.env.OMDB_API_KEY ; 
 const OMDB_BASE_URL = "https://www.omdbapi.com/";
 
 interface OMDbSearchResponse {
